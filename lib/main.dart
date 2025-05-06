@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:examen_android_1082/pagina_inicial.dart';
+import 'package:examen_android_1082/102_change_notifier/change_notifier.dart';
+import 'package:examen_android_1082/16_alert_dialog/alertdialog.dart';
+import 'package:examen_android_1082/32_icon_button/iconbutton.dart';
+import 'package:examen_android_1082/40_clipoval/clipoval.dart';
+import 'package:examen_android_1082/48_placeholder/placeholder.dart';
+import 'package:examen_android_1082/72_animated_padding/animated_padding.dart';
+import 'package:examen_android_1082/88_indexed_stack/indexed_stack.dart';
+import 'package:examen_android_1082/91_cascade_operator/cascade_operator.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MiExamen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiExamen extends StatelessWidget {
+  const MiExamen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Android UII Examen  Botones con rutas nombradas',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaInicial(),
+        '/pantalla2': (context) => const MyChangeNotifier(),
+        '/pantalla3': (context) => const MyAlertDialog(),
+        '/pantalla4': (context) => const MyIconButton(),
+        '/pantalla5': (context) => const MyClipOval(),
+        '/pantalla6': (context) => const MyPlaceholder(),
+        '/pantalla7': (context) => const MyAnimatedPadding(),
+        '/pantalla8': (context) => const MyIndexedStack(),
+        '/pantalla9': (context) => const MyCascadeOperator(),
+      },
     );
   }
 }
